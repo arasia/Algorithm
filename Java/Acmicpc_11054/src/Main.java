@@ -8,7 +8,8 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /*
-Acmicpc
+Acmicpc 11054
+
 - 가장 긴 바이토닉 부분 수열 (https://www.acmicpc.net/problem/11054)
  */
 public class Main {
@@ -39,9 +40,9 @@ public class Main {
                 }
             }
 
-            for (int i = N - 2; i > 0; i--) {
+            for (int i = N - 2; i >= 0; i--) {
                 dp[i][1] = 1;
-                for (int j = N - 1; j > 0; j--) {
+                for (int j = N - 1; j > i; j--) {
                     if (list.get(i) > list.get(j)) {
                         dp[i][1] = Math.max(dp[i][1], (dp[j][1] + 1));
                     }
