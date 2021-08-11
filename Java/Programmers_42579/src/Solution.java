@@ -31,10 +31,11 @@ public class Solution {
         for (String sortedGenre : sortedGenres) {
             genresAlbum.get(sortedGenre)
                     .stream()
-                    .sorted(Comparator.comparing(Album::getPlays, Comparator.reverseOrder()).thenComparing(Album::getIndex))
-                    .map(Album::getIndex)
+                    .sorted(Comparator.comparing(Album::getPlays, Comparator.reverseOrder())
+                            .thenComparing(Album::getIndex))
                     .limit(2)
-                    .forEachOrdered(result::add);
+                    .map(Album::getIndex)
+                    .forEach(result::add);
         }
 
         return result.stream().mapToInt(i -> i).toArray();
